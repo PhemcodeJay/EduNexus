@@ -37,6 +37,8 @@ export const courses = pgTable("courses", {
   description: text("description"),
   teacherId: integer("teacher_id").references(() => teachers.id),
   schedule: text("schedule"),
+  content: text("content"),
+  contentType: text("content_type").default("pdf"),
 });
 
 export const enrollments = pgTable("enrollments", {
@@ -155,3 +157,4 @@ export type InsertTeacher = z.infer<typeof insertTeacherSchema>;
 export type InsertCourse = z.infer<typeof insertCourseSchema>;
 export type InsertFee = z.infer<typeof insertFeeSchema>;
 export type InsertEvent = z.infer<typeof insertEventSchema>;
+export type InsertCourse = z.infer<typeof insertCourseSchema>;

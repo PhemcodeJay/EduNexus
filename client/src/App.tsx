@@ -8,6 +8,7 @@ import Dashboard from "@/pages/Dashboard";
 import Students from "@/pages/Students";
 import Teachers from "@/pages/Teachers";
 import Courses from "@/pages/Courses";
+import CourseDetail from "@/pages/CourseDetail";
 import Fees from "@/pages/Fees";
 import Events from "@/pages/Events";
 import Login from "@/pages/Login";
@@ -52,6 +53,9 @@ function Router() {
       </Route>
       <Route path="/courses">
         <ProtectedRoute component={Courses} />
+      </Route>
+      <Route path="/courses/:id">
+        <ProtectedRoute component={CourseDetail} />
       </Route>
       <Route path="/fees">
         <ProtectedRoute component={Fees} />

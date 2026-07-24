@@ -2,7 +2,7 @@ import { PageContainer } from "@/components/layout/PageContainer";
 import { useCourses, useCreateCourse, useTeachers, useUsers } from "@/hooks/use-sms";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Plus, BookOpen, Clock, User } from "lucide-react";
+import { Plus, BookOpen, Clock, User, Eye } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -160,7 +160,14 @@ export default function Courses() {
                 </div>
               </CardContent>
               <CardFooter className="pt-4 border-t border-border/50">
-                <Button variant="outline" className="w-full">View Details</Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full gap-2"
+                  onClick={() => window.location.href = `/courses/${course.id}`}
+                >
+                  <Eye className="w-4 h-4" />
+                  View Course
+                </Button>
               </CardFooter>
             </Card>
           ))

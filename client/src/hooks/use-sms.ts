@@ -102,6 +102,18 @@ export function useCourses() {
   });
 }
 
+export function useCourse(id: number) {
+  return useQuery({
+    queryKey: [`/api/courses/${id}`],
+    queryFn: async () => {
+      const res = await fetch(`/api/courses/${id}`, { credentials: "include" });
+      if (!res.ok) throw new Error("Failed to fetch course");
+      return await res.json();
+    },
+    enabled: !isNaN(id),
+  });
+}
+
 export function useCreateCourse() {
   const queryClient = useQueryClient();
   return useMutation({

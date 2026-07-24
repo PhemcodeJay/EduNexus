@@ -51,6 +51,20 @@ export async function registerRoutes(
     res.json(courses);
   });
 
+  app.get("/api/courses/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) {
+      res.status(400).json({ message: "Invalid course ID" });
+      return;
+    }
+    const course = await storage.getCourse(id);
+    if (!course) {
+      res.status(404).json({ message: "Course not found" });
+      return;
+    }
+    res.json(course);
+  });
+
   app.post(api.courses.create.path, async (req, res) => {
     try {
       const input = api.courses.create.input.parse(req.body);

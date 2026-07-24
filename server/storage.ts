@@ -45,6 +45,11 @@ export class DatabaseStorage implements IStorage {
     return await db.select().from(courses);
   }
 
+  async getCourse(id: number): Promise<Course | undefined> {
+    const [course] = await db.select().from(courses).where(eq(courses.id, id));
+    return course;
+  }
+
   async createCourse(insertCourse: any): Promise<Course> {
     const [course] = await db.insert(courses).values(insertCourse).returning();
     return course;
