@@ -157,4 +157,3 @@ export type InsertTeacher = z.infer<typeof insertTeacherSchema>;
 export type InsertCourse = z.infer<typeof insertCourseSchema>;
 export type InsertFee = z.infer<typeof insertFeeSchema>;
 export type InsertEvent = z.infer<typeof insertEventSchema>;
-export type InsertCourse = z.infer<typeof insertCourseSchema>;
